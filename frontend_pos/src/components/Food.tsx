@@ -24,6 +24,8 @@ const Food = () => {
 
     //   Filter Type burgers/pizza/etc
     const filterType = (category: number) => {
+        console.log(category)
+        console.log(meal_data)
         setFoods(
             meal_data?.filter((item) => {
                 return item.category === category;

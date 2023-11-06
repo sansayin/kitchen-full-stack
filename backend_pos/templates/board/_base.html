@@ -1,0 +1,55 @@
+{% load django_bootstrap5 django_htmx static i18n %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:'en_us' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block bootstrap5_title %}Chef Board{% if debug %} - DEBUG{% endif %}{% endblock %}</title>
+    {% bootstrap_css %}
+    {% if 'javascript_in_head'|bootstrap_setting %}
+        {% bootstrap_javascript %}
+    {% endif %}
+    {% block bootstrap5_extra_head %}
+    <meta name="description" content="HTMX and server sent events">
+    <link href="{% static 'main.css' %}" rel="stylesheet">
+    <script src="{% static 'htmx.min.js' defer %}"></script>
+    <script src="{% static 'ext/sse.js' defer %}"></script>
+    <script src="{% static 'ext/debug.js' defer %}"></script>
+    <script src="{% static 'main.js' defer %}"></script>
+    {% endblock %}
+</head>
+<body hx-ext="debug, sse">
+{% block bootstrap5_before_content %}
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Kitchen Ticket Board</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-nav flex-row flex-wrap">
+  </div>
+   </header>
+{% endblock bootstrap5_before_content %}
+{% block bootstrap5_content %}
+<div class="container-fluid">
+  <div class="row">
+    <main class="col-md-9 ms-sm-auto col-lg-12 px-md-4">
+    {% bootstrap_messages %}
+    {% block page_content %}
+    {% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock bootstrap5_content %}
+{% block bootstrap5_after_content %}
+
+{% endblock bootstrap5_after_content %}
+<!-- Bootstrap JavaScript if it is in body -->
+{% if not 'javascript_in_head'|bootstrap_setting %}
+    {% bootstrap_javascript %}
+{% endif %}
+{% block bootstrap5_extra_script %}
+    {% django_htmx_script %}
+{% endblock %}
+</body>
+</html>

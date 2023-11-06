@@ -1,0 +1,28 @@
+{% load custom_tags %}
+{% with parts=progress|split:":" %}
+{% with to_pick=parts.0 picked=parts.1 %}
+{% for i in ""|rjust:to_pick %}
+<div class="d-flex flex-row justify-content-between align-self-end mb-3">
+    <div class="flex-column align-self-end">
+        
+        <div class="flex-column align-self-end" id="ticket-{{ ticket }}-{{ forloop.counter }}">
+            <a href="#" class="btn btn-primary" hx-get="{% url 'cook-meal' ticket=ticket meal_name=meal_name %}"
+                hx-swap="outerHTML" hx-target="#ticket-{{ ticket }}-{{ forloop.counter }}" hx-trigger="click"
+                hx-indicator="on">Pick
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% for i in ""|rjust:picked %}
+<div class="d-flex flex-row justify-content-between align-self-end mb-3">
+    <div class="flex-column align-self-end" id="p-{{ ticket }}-{{ forloop.counter }}">
+        <div class="flex-column align-self-end" hx-get="{% url 'cook-status' ticket=ticket meal_name=meal_name %}"
+            hx-swap="outerHTML" hx-trigger="every 10s" hx-target="#p-{{ ticket }}-{{ forloop.counter }}">
+            <p>Cooking</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endwith %}
+{% endwith %}

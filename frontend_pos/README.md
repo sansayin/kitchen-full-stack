@@ -15,3 +15,6 @@ you need generate the openapi code again:
 there is miltipal choiced other than axios, the generated code is quite abstract high level.
 go https://github.com/ferdikoomen/openapi-typescript-codegen to learn more.
 
+## After backend URL change
+please modify .env accordingly
+

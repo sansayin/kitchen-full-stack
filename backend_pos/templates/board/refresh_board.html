@@ -1,0 +1,13 @@
+{% for ticket, fields_and_values in ticket.items %}
+<div class="col-md-2">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title font-weight-bold">{{ ticket }}</h2>
+            {% for meal_name, qty in fields_and_values.items %}
+            <p>{{ meal_name }}</p>
+            {% include "board/meal_progress.html" with progress=qty ticket=ticket meal_name=meal_name %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}

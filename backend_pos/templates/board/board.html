@@ -1,0 +1,38 @@
+{% extends 'board/_base.html' %}
+{% block bootstrap5_title %}{{ block.super }} - Index{% endblock bootstrap5_title %}
+{% block page_content %}
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container top-0 end-0 p-3" hx-ext="sse"
+         sse-connect="{% url 'events' event_name='toasts' %}"
+         sse-swap="message" id="toast-container" hx-swap="beforeend">
+    </div>
+</div>
+<h1>Order Board</h1>
+<div class="container mt-2" 
+    hx-get="{% url 'refresh-board-view' %}" 
+    hx-target="#table-container"
+    hx-trigger="every 5s"
+>
+    <div class="row" id="table-container">
+        {% for ticket, fields_and_values in ticket.items %}
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body"
+                    hx-get="{% url 'ticket-status' ticket=ticket %}"
+                    hx-swap="innerHTML"
+                    hx-trigger="every 5s"
+                    >
+                    <h2 class="card-title font-weight-bold">{{ ticket }}</h2>
+                    {% for meal_name, qty in fields_and_values.items %}
+                    <p>{{ meal_name }}</p>
+                    {% include "board/meal_progress.html" with progress=qty ticket=ticket meal_name=meal_name %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock page_content %}

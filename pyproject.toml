@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "kitchen-service"
+version = "0.1.0"
+description = ""
+authors = ["Bryen Yan"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.6"
+djangorestframework = "^3.14.0"
+markdown = "^3.5"
+django-filter = "^23.3"
+drf-yasg = "^1.21.7"
+django-extensions = "^3.2.3"
+django-cors-headers = "^4.3.0"
+bson = "^0.5.10"
+pip = "^23.3.1"
+confluent-kafka = "^2.3.0"
+asgiref = "^3.7.2"
+daphne = "^4.0.0"
+pymemcache = "^4.0.0"
+opentelemetry-api = "^1.20.0"
+opentelemetry-sdk = "^1.20.0"
+opentelemetry-instrumentation-django = "^0.41b0"
+grpcio = "^1.59.2"
+grpcio-tools = "^1.59.2"
+celery = "^5.3.4"
+redis = "^5.0.1"
+django-redis = "^5.4.0"
+djangorestframework-simplejwt = "^5.3.0"
+django-ninja = "^0.22.2"
+django-stubs = "^4.2.6"
+django-htmx = "^1.17.0"
+django-bootstrap5 = "^23.3"
+django-celery-results = "^2.5.1"
+channels = "^4.0.0"
+django-celery-beat = "^2.5.0"
+twisted = { version = "*", extras = ["http2", "tls"] }
+django-rename-app = "^0.1.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

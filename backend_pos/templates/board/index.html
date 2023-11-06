@@ -1,0 +1,19 @@
+{% extends 'board/_base.html' %}
+{% block bootstrap5_title %}{{ block.super }} - Index{% endblock bootstrap5_title %}
+{% block page_content %}
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container top-0 end-0 p-3" hx-ext="sse"
+         sse-connect="{% url 'events' event_name='toasts' %}"
+         sse-swap="message" id="toast-container" hx-swap="beforeend">
+    </div>
+</div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+<div class="container mt-2">
+    <div class="row" htx-get="{% url 'ticket-tasks' %}" hx-swap="innerHTML" hx-trigger="every 5s">
+    </div>
+</div>
+
+{% endblock page_content %}

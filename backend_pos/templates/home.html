@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Element with Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional CSS to center the text vertically */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+            <div><a href="/api/docs"><img src="https://s3-us-west-2.amazonaws.com/assertible/integrations/swagger-logo-horizontal.jpeg"/></a></div>
+        <div>
+            <a class="btn btn-success m-2" href="http://localhost:5173">Order Food</a>
+            <a class="btn btn-primary m-2" href="/admin">Admin Page</a>
+            <a class="btn btn-warning m-2" href="/kitchen">Kitchen Board</a>
+        </div>
+        <div> user/pass: admin/admin</div>
+</body>
+
+</html>
