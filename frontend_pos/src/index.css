@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.left-clickable, .right-clickable {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+
