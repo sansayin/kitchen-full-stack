@@ -5,7 +5,7 @@ Under infra/kafka and infra/redis
 - `docker-compose -f up`
 
 # Run Djando
-./manage.py runserver
+- ./manage.py runserver
 
 # Access Server
 - http://localhost:8080
