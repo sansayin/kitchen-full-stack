@@ -5,11 +5,11 @@ Under infra/kafka and infra/redis
 - `docker-compose -f up`
 
 # In project folder(manage.py)
-## Run Celery
+## Terminal #1 Run Celery
 - celery -A backend_pos.celery worker -l INFO
-## Run Djando
+## Terminal #2 Run Djando
 - ./manage.py runserver
 
-# Access Server
+# Browser Open
 - http://localhost:8080
 assume the front end already running, the home page will lead you...
