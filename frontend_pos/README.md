@@ -10,9 +10,9 @@ A rough UI design, which i actually really spend some time, borrowed some ideas 
 you need generate the openapi code again: 
 - download opanapi from http://localhost:8080/api/docs
 - replace openapi.json
-`npx  openapi -i ./openapi.json -o src/generated --client axios`
+- in project root folder `npx  openapi -i ./openapi.json -o src/generated --client axios`
 
-there is miltipal choiced other than axios, the generated code is quite abstract high level.
+there is many options other than axios, the generated code is quite abstract high level.
 go https://github.com/ferdikoomen/openapi-typescript-codegen to learn more.
 
 ## After backend URL change
