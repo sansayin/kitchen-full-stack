@@ -1,7 +1,8 @@
 # Prepare environment
 In case you don't have kafka and Redis running
 Under infra/kafka and infra/redis
-`docker-compose -f up`
+
+- `docker-compose -f up`
 
 # Run Djando
 ./manage.py runserver
